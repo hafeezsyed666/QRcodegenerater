@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced QR Code Generator | Create Custom QR Codes Free</title>
+    <meta name="description" content="Generate custom QR codes instantly with our free online tool. Create colored QR codes, add logos, and choose different styles. Perfect for businesses, marketing materials, and personal use.">
+    <meta name="keywords" content="QR code generator, create QR code, free QR code, custom QR code, QR code with logo">
+    <link rel="canonical" href="https://yourdomain.com/qr-generator">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Advanced QR Code Generator",
+        "url": "https://yourdomain.com/qr-generator",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Web",
+        "description": "Free online tool to generate customizable QR codes with various options",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui;
+        }
+
+        body {
+            background: var(--background);
+            line-height: 1.6;
+            color: var(--primary-color);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .generator-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .color-picker-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .color-input {
+            width: 50px;
+            height: 40px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        #qrcode {
+            margin: 2rem auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .download-options {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Advanced QR Code Generator</h1>
+        <p>Create Custom QR Codes Instantly - Free & No Registration Required</p>
+    </header>
+
+    <main class="container">
+        <section class="generator-section">
+            <div class="input-group">
+                <label for="qr-content">Enter Text or URL</label>
+                <input type="url" id="qr-content" placeholder="https://example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Customization Options</label>
+                <div class="color-picker-container">
+                    <input type="color" id="qr-color" class="color-input" value="#000000">
+                    <select id="qr-size">
+                        <option value="200">Small (200x200)</option>
+                        <option value="300" selected>Medium (300x300)</option>
+                        <option value="400">Large (400x400)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="generateQR()">Generate QR Code</button>
+
+            <div id="qrcode"></div>
+
+            <div class="download-options">
+                <button onclick="downloadQR()" id="download-btn" style="display: none;">Download PNG</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>Custom Colors</h3>
+                <p>Create QR codes in any color to match your brand identity</p>
+            </div>
+            <div class="feature-card">
+                <h3>Multiple Sizes</h3>
+                <p>Generate QR codes in various sizes for different use cases</p>
+            </div>
+            <div class="feature-card">
+                <h3>High Quality</h3>
+                <p>Download print-ready PNG files with 300 DPI resolution</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 QR Code Generator. All rights reserved.</p>
+        <p><a href="/privacy" style="color: white;">Privacy Policy</a> | <a href="/terms" style="color: white;">Terms of Service</a></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        let qrInstance = null;
+        let currentColor = '#000000';
+
+        // QR Code Generation
+        function generateQR() {
+            const content = document.getElementById('qr-content').value;
+            const size = document.getElementById('qr-size').value;
+            currentColor = document.getElementById('qr-color').value;
+
+            if (!content) {
+                alert('Please enter some content for the QR code');
+                return;
+            }
+
+            if (qrInstance) {
+                qrInstance.clear();
+                document.getElementById('qrcode').innerHTML = '';
+            }
+
+            qrInstance = new QRCode(document.getElementById('qrcode'), {
+                text: content,
+                width: parseInt(size),
+                height: parseInt(size),
+                colorDark: currentColor,
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            document.getElementById('download-btn').style.display = 'inline-block';
+        }
+
+        // Download Functionality
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            const image = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = `qr-code-${Date.now()}.png`;
+            link.href = image;
+            link.click();
+        }
+
+        // Real-time Generation
+        document.getElementById('qr-content').addEventListener('input', debounce(() => {
+            if (document.getElementById('qr-content').value.length > 5) {
+                generateQR();
+            }
+        }, 500));
+
+        // Debounce Function
+        function debounce(func, timeout = 300){
+            let timer;
+            return (...args) => {
+                clearTimeout(timer);
+                timer = setTimeout(() => { func.apply(this, args); }, timeout);
+            };
+        }
+    </script>
+</body>
+</html>
